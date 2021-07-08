@@ -5,3 +5,4 @@
 <br>2. change .env.example to .env</br>
 <br>3. run php artisan key:generate</br>
 <br>4. configure .env</br>
+<br>5. Run php artisan serve</br>
