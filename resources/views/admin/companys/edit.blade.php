@@ -15,12 +15,12 @@
                 <div class="ml-auto">
                     <div class="dropdown">
                         <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          Actions
+                          {{__('Actions')}}
                         </button>
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
-                          <a class="dropdown-item" href="{{ route('admin.companys.dashboard') }}">View Dashboard</a>
+                          <a class="dropdown-item" href="{{ route('admin.companys.dashboard') }}">{{__('View Companies')}}</a>
                           <div class="dropdown-divider"></div>
-                          <a class="dropdown-item text-danger" href="#" onclick="deletecompany()">Delete company</a>
+                          <a class="dropdown-item text-danger" href="#" onclick="deletecompany()">{{__('Delete Company')}}</a>
                             <form action="{{ route('admin.companys.delete', $company->id) }}" id="delete-company-form" style="display:none" method="POST">
                                 @csrf
                                 @method('DELETE')
@@ -44,9 +44,9 @@
                         <img src="/images/user.png" style="max-width: 100%" alt="">
                     @endif
                     <hr>
-                    <button class="btn btn-outline-primary btn-sm btn-block" data-toggle="modal" data-target="#updateProfileImageModal">New Profile Image</button>
+                    <button class="btn btn-outline-primary btn-sm btn-block" data-toggle="modal" data-target="#updateProfileImageModal">{{__('New Profile Image')}}</button>
                     @if ($company->logo)
-                        <button class="btn btn-outline-danger btn-sm btn-block" onclick="deleteProfileImage()"><i class="fas fa-trash"></i> Delete Profile Image</button>
+                        <button class="btn btn-outline-danger btn-sm btn-block" onclick="deleteProfileImage()"><i class="fas fa-trash"></i> {{__('Delete Profile Image')}}</button>
                         <form action="{{ route('admin.companys.delete.profile-image', $company->id) }}" method="POST" id="delete-profile-image-form">
                             @csrf
                             @method('DELETE')
@@ -59,7 +59,7 @@
         <div class="col-md-8">
             <div class="card mt-3">
                 <div class="card-body">
-                    <h5>Edit Company Details</h5>
+                    <h5>{{__('Edit Company Detail')}}</h5>
                     <hr>
                     @if ($errors->count())
                         <div class="alert alert-danger">
@@ -76,35 +76,35 @@
                         @method('PUT')
 
                         <div class="form-group">
-                            <label for="">Name</label>
+                            <label for="">{{__('Name')}}</label>
                             <input type="text" class="form-control" name="name" value="{{ $company->name }}">
                         </div>
 
                         <div class="form-group">
-                            <label for="">Email</label>
+                            <label for="">{{__('Email')}}</label>
                             <input type="email" class="form-control" name="email" value="{{ $company->email }}">
                         </div>
 
                         <div class="form-group">
-                            <label for="">Website</label>
+                            <label for="">{{__('Website')}}</label>
                             <input type="website" class="form-control" name="website" value="{{ $company->website }}">
                         </div>
 
-                        <button class="btn btn-primary float-right">Update company</button>
+                        <button class="btn btn-primary float-right">{{__('Update Company')}}</button>
                     </form>
                 </div>
             </div><!-- /.card company details-->
 
             <div class="card mt-3">
                 <div class="card-body">
-                    <h5>Edit Employee Details</h5>
+                    <h5>{{__('Edit Employee Detail')}}</h5>
                     <hr>
                     @if ($company->employee)
                         @include('admin.companys.employee.partials.edit-employee-form', ['company_id' => $company->id, 'employee' => $company->employee])
                     @else
                         <div class="d-flex">
                             <div class="mx-auto">
-                                <a href="{{ route('admin.companys.employee.create', $company->id) }}" class="btn btn-outline-primary">Create Employee Details</a>
+                                <a href="{{ route('admin.companys.employee.create', $company->id) }}" class="btn btn-outline-primary">{{__('Create Employee Detail')}}</a>
                             </div>
                         </div>
                     @endif
@@ -119,7 +119,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Update Profile Image</h5>
+                <h5 class="modal-title" id="exampleModalLabel">{{__('Update Profile Image')}}</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -130,11 +130,11 @@
                     @method('PUT')
 
                     <div class="form-group">
-                        <label for="">Choose an Image</label>
+                        <label for="">{{__('Choose an Image')}}</label>
                         <input type="file" class="form-control-file" name="image">
                     </div>
 
-                    <button class="btn btn-primary float-right">Update Profile Image</button>
+                    <button class="btn btn-primary float-right">{{__('Update Profile Image')}}</button>
                 </form>
             </div>
         </div>

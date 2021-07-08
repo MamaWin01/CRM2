@@ -42,7 +42,7 @@
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
-                        {{-- @if(count(config('app.languages')) > 1)
+                        @if(count(config('app.languages')) > 1)
                             <li class="nav-item dropdown d-md-down-none">
                                 <a class="nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
                                     {{ strtoupper(app()->getLocale()) }}
@@ -53,7 +53,7 @@
                                     @endforeach
                                 </div>
                             </li>
-                        @endif --}}
+                        @endif
                         <!-- Authentication Links -->
                         @guest
                             <li class="nav-item">

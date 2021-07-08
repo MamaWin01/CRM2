@@ -230,4 +230,9 @@ return [
 
     ],
 
+    'languages' => [
+        'en' => 'English',
+        'id' => 'Indonesia',
+    ],
+
 ];
