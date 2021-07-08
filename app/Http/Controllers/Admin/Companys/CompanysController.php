@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin\Companys;
 use App\Models\Company;
 use Illuminate\Pagination;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\Companys\StoreCompanyRequest;
 use App\Http\Requests\Companys\UpdateCompanyRequest;
@@ -32,6 +33,14 @@ class CompanysController extends Controller
     {
 
         return view('admin.companys.create');
+
+
+        $company = Company::create();
+        Mail::send('emails.Mail',$company->toArray(),
+        function($message){
+            $message->to('c3c5d113f6-7ae32f@inbox.mailtrap.io', 'Mail Trap')
+            ->subject('Company Create Subject');
+        });
     }
 
     /**
@@ -48,7 +57,6 @@ class CompanysController extends Controller
             $path = $request->logo->store('public/company/logo');
             $company->update(['logo' => $path]);
         }
-
         return redirect()->route('admin.companys.dashboard', $company->id)->with('success', 'Successfully Created a New company');
     }
 
