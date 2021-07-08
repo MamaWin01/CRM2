@@ -38,14 +38,14 @@
             {{-- Placeholder for image and option to change out just the image --}}
             <div class="card mt-3">
                 <div class="card-body">
-                    @if ($company->profile_image)
-                        <img src="{{ Storage::url($company->profile_image) }}" style="max-width: 100%" alt="">
+                    @if ($company->logo)
+                        <img src="{{ Storage::url($company->logo) }}" style="max-width: 100%" alt="">
                     @else
                         <img src="/images/user.png" style="max-width: 100%" alt="">
                     @endif
                     <hr>
                     <button class="btn btn-outline-primary btn-sm btn-block" data-toggle="modal" data-target="#updateProfileImageModal">New Profile Image</button>
-                    @if ($company->profile_image)
+                    @if ($company->logo)
                         <button class="btn btn-outline-danger btn-sm btn-block" onclick="deleteProfileImage()"><i class="fas fa-trash"></i> Delete Profile Image</button>
                         <form action="{{ route('admin.companys.delete.profile-image', $company->id) }}" method="POST" id="delete-profile-image-form">
                             @csrf

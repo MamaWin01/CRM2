@@ -44,9 +44,9 @@ class CompanysController extends Controller
     {
         $company = Company::create($request->only('name', 'email', 'website'));
 
-        if ($request->hasFile('profile_image')) {
-            $path = $request->profile_image->store('public/companys/profiles/images');
-            $company->update(['profile_image' => $path]);
+        if ($request->hasFile('logo')) {
+            $path = $request->logo->store('public/company/logo');
+            $company->update(['logo' => $path]);
         }
 
         return redirect()->route('admin.companys.dashboard', $company->id)->with('success', 'Successfully Created a New company');
@@ -90,22 +90,22 @@ class CompanysController extends Controller
 
     public function updateProfileImage(UpdateProfileImageRequest $request, Company $company)
     {
-        if ($company->profile_image) {
-            Storage::delete($company->profile_image);
+        if ($company->logo) {
+            Storage::delete($company->logo);
         }
-        $path = $request->image->store('public/companys/profiles_images');
+        $path = $request->image->store('public/company/logo');
 
-        $company->update(['profile_image' => $path]);
+        $company->update(['logo' => $path]);
 
         return back()->with('success', 'Successfully updated profile image');
     }
 
     public function destroyProfileImage(Company $company)
     {
-        if ($company->profile_image) {
-            Storage::delete($company->profile_image);
+        if ($company->logo) {
+            Storage::delete($company->logo);
 
-            $company->update(['profile_image' => null]);
+            $company->update(['logo' => null]);
         }
 
         return back()->with('success', 'Successfully deleted profile image!');
@@ -119,8 +119,8 @@ class CompanysController extends Controller
      */
     public function destroy(Company $company)
     {
-        if ($company->profile_image) {
-            Storage::delete($company->profile_image);
+        if ($company->logo) {
+            Storage::delete($company->logo);
         }
 
         $company->delete();

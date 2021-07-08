@@ -26,7 +26,7 @@ class StoreCompanyRequest extends FormRequest
         return [
             'name' => 'required',
             'email' => 'required|unique:companys',
-            'profile_image' => 'nullable|mimes:png,jpg,jpeg|max:2000',
+            'logo' => 'nullable|mimes:png,jpg,jpeg|max:2000',
             'website' => 'required'
         ];
     }
