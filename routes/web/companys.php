@@ -20,7 +20,8 @@ Route::put('{company}/profile-image', [CompanysController::class, 'updateProfile
 Route::delete('{company}', [CompanysController::class, 'destroy'])->where('company', '[0-9]+')->name('delete');
 Route::delete('{company}/profile-image', [CompanysController::class, 'destroyProfileImage'])->where('company', '[0-9]+')->name('delete.profile-image');
 
-Route::get('{company}/employee/create', [CompanyEmployeesController::class, 'create'])->where('company', '[0-9]+')->name('employee.create');
-Route::post('{company}/employee', [CompanyEmployeesController::class, 'store'])->where('company', '[0-9]+')->name('employee.store');
-Route::put('{company}/employee', [CompanyEmployeesController::class, 'update'])->where('company', '[0-9]+')->name('employee.update');
+// Route::get('employee', [CompanyEmployeesController::class, 'index'])->where('company', '[0-9]+')->name('employee.index');
+// Route::get('employee/create', [CompanyEmployeesController::class, 'create'])->where('company', '[0-9]+')->name('employee.create');
+// Route::post('employee', [CompanyEmployeesController::class, 'store'])->where('company', '[0-9]+')->name('employee.store');
+// Route::put('employee', [CompanyEmployeesController::class, 'update'])->where('company', '[0-9]+')->name('employee.update');
 

@@ -95,7 +95,7 @@
                 </div>
             </div><!-- /.card company details-->
 
-            <div class="card mt-3">
+            {{-- <div class="card mt-3">
                 <div class="card-body">
                     <h5>{{__('Edit Employee Detail')}}</h5>
                     <hr>
@@ -109,7 +109,7 @@
                         </div>
                     @endif
                 </div>
-            </div>
+            </div> --}}
         </div>
     </div>
 </div>

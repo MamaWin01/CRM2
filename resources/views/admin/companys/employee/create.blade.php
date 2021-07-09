@@ -22,7 +22,7 @@
 
         <div class="card mt-3">
             <div class="card-body">
-                <form action="{{ route('admin.companys.employee.store', $company->id) }}" method="POST">
+                <form action="{{ route('employee.store', $employee->id) }}" method="POST">
                     @csrf
                     <div class="form-group row">
                         <label for="" class="col-md-3">{{__('First Name')}}</label>

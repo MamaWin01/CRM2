@@ -13,12 +13,20 @@ class UsersTableSeeder extends Seeder
      *
      * @return void
      */
+    // public function run()
     public function run()
     {
-        User::UpdateOrCreate(['id'=> 1], [
-            'name' => 'admin',
+        User::create_function(['id'=>1], [
+            'name'=> 'admin',
             'email'=> 'admin@admin.com',
-            'password' => bcrypt('password')
+            'password'=> 'password'
         ]);
     }
+    // {
+    //     User::UpdateOrCreate(['id'=> 1], [
+    //         'name' => 'admin',
+    //         'email'=> 'admin@admin.com',
+    //         'password' => bcrypt('password')
+    //     ]);
+    // }
 }
